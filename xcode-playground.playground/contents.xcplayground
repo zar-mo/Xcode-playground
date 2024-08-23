@@ -3,5 +3,7 @@
     <pages>
         <page name='Untitled Page 2'/>
         <page name='removeConsecutive'/>
+        <page name='rotateArray'/>
+        <page name='Untitled Page'/>
     </pages>
 </playground>
