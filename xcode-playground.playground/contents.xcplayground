@@ -3,7 +3,8 @@
     <pages>
         <page name='USABankModel'/>
         <page name='removeConsecutive'/>
-        <page name='Untitled Page'/>
+        <page name='JsonToStruct'/>
         <page name='rotateArray'/>
+        <page name='LinkedList'/>
     </pages>
 </playground>
