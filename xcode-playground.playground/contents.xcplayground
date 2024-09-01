@@ -6,5 +6,7 @@
         <page name='JsonToStruct'/>
         <page name='rotateArray'/>
         <page name='LinkedList'/>
+        <page name='AssociatedType'/>
+        <page name='SOLID'/>
     </pages>
 </playground>

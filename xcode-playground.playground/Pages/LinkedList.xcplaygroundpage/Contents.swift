@@ -35,6 +35,12 @@ class LinkedList<T: Equatable>{
         }
     }
     
+    func removeByPosition(index: Int){
+        if head == nil { return }
+        var count: Int = 0
+        
+    }
+    
     func removeByValue(value: T){
       
         if head == nil { return }
