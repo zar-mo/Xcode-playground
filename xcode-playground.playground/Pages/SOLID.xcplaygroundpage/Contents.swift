@@ -1,3 +1,7 @@
+
+// follow SOLID principles
+
+
 import UIKit
 
 enum MembershipType: Double{
@@ -122,6 +126,111 @@ receipt.items.append(item2)
 print("Total without tax: \(receipt.totalWithoutTax())")
 print("Total tax: \(receipt.totalTax())")
 print("Total with tax and discount: \(receipt.totalWithTaxAndDiscount())")
+
+struct ReceiptPDF{
+    
+    let receipt: Receipt
+}
+
+protocol SendReceipt{
+    
+    var pdf: ReceiptPDF {get}
+    
+    func send()
+}
+
+class SendToPrinter: SendReceipt{
+    
+    let pdf: ReceiptPDF
+    
+    init(pdf: ReceiptPDF) {
+        self.pdf = pdf
+    }
+    
+    func send(){
+        
+    }
+}
+
+class SendToEmail: SendReceipt{
+    
+    let pdf: ReceiptPDF
+    
+    init(pdf: ReceiptPDF) {
+        self.pdf = pdf
+    }
+    
+    func send(){
+        
+    }
+}
+
+protocol CheckEmailValidity{
+
+    func checkValidity(email: String) -> Bool
+ 
+}
+
+protocol CheckPrinterConnectivity{
+
+    func checkConnectivity(printerName: String, password: String) -> Bool
+}
+
+class GenerateReceipt{
+    
+    let receipt: Receipt
+    
+    init(receipt: Receipt) {
+        self.receipt = receipt
+    }
+    
+    func generate() -> ReceiptPDF {
+        
+        return ReceiptPDF(receipt: receipt)
+    }
+}
+
+class PrintReceipt: GenerateReceipt, CheckPrinterConnectivity{
+    func checkConnectivity(printerName: String, password: String) -> Bool {
+        
+        Bool.random()
+    }
+    
+    
+    let sendReceipt: SendReceipt
+    
+    init(sendReceipt: SendReceipt, receipt: Receipt) {
+        self.sendReceipt = sendReceipt
+        super.init(receipt: receipt)
+    }
+    
+    func send() {
+        
+        sendReceipt.send()
+    }
+}
+
+class EmailReceipt: GenerateReceipt, CheckEmailValidity{
+    
+    
+    func checkValidity(email: String) -> Bool {
+        Bool.random()
+    }
+    
+    let sendReceipt: SendReceipt
+    
+    init(sendReceipt: SendReceipt, receipt: Receipt) {
+        self.sendReceipt = sendReceipt
+        super.init(receipt: receipt)
+    }
+    
+    func send() {
+        
+        sendReceipt.send()
+    }
+}
+
+
 
 
 
