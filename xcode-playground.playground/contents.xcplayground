@@ -7,6 +7,7 @@
         <page name='rotateArray'/>
         <page name='LinkedList'/>
         <page name='AssociatedType'/>
+        <page name='Closure'/>
         <page name='SOLID'/>
     </pages>
 </playground>
